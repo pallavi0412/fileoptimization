@@ -11,7 +11,7 @@ public class ThumbnailFunction {
 
   @FunctionName("Thumbnail")
   public void run(@EventGridTrigger(name = "event") EventGridEvent eventGridEvent,
-      @BlobInput(name = "input", dataType = "binary", path = "{data.url}") byte[] input,
+      @BlobInput(name = "input", dataType = "binary", path = "{data.url}", connection = "{storageConnectionString}") byte[] input,
       @BindingName("data.url") String blobUrl,
       final ExecutionContext context) {
     try {
